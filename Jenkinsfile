@@ -29,7 +29,7 @@ pipeline {
                     withCredentials([sshUserPrivateKey(credentialsId: "ansible-server-key", keyFileVariable: 'keyfile', usernameVariable: 'user' )]){
                         remote.user = user
                         remote.identityFile = keyfile
-                        sshScript remote: remote, script: "prepare-ansible-server.sh"
+                        sshScript remote: remote, script: "prepare-ansible-server.sh" // When jenkins server is dynamic
                         sshCommand remote: remote, command: "ansible-playbook my-playbook.yaml"
                     }
                 }
