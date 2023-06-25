@@ -1,0 +1,18 @@
+---
+plugin: aws_ec2
+regions: 
+  - ap-south-1
+keyed_groups:
+  - key: tags  # Default group for inventory
+    prefix: tag
+  - key: instance_type # Group using instance type {t2.small,...}
+    prefix: instance_type
+
+
+
+
+
+
+
+# GET the output of inventory file.
+# ansible-inventory -i inventory_aws_ec2.yaml -graph
